@@ -36,7 +36,9 @@ document.getElementById("glucoseForm").addEventListener("submit", function (e) {
       }
     }
 
-    resultText = `Start insulin infusion.<br><strong>Bolus:</strong> ${bolus} units<br><strong>Infusion Rate:</strong> ${rate} units/hr`;
+const isFirst = document.getElementById("glucoseLog").childElementCount === 0;
+const action = isFirst ? "Start insulin infusion" : "Adjust insulin infusion";
+resultText = `${action}.<br><strong>Bolus:</strong> ${bolus} units<br><strong>Infusion Rate:</strong> ${rate} units/hr`;
     startTimer(30 * 60);
   }
 
